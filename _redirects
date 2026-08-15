@@ -1,4 +1,5 @@
-# Redirects for Cloudflare Pages
-/pages/bottle/*   /pages/3d-services/index.html   301
-/pages/bottle/    /pages/3d-services/index.html   301
-/bottle/*         /pages/3d-services/index.html   301
+# Redirects for Cloudflare Pages & Workers Static Assets
+/pages/bottle/*   /pages/3d-services/   301
+/pages/bottle     /pages/3d-services/   301
+/bottle/*         /pages/3d-services/   301
+/bottle           /pages/3d-services/   301
