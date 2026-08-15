@@ -1,12 +1,44 @@
-[[headers]]
-  for = "*.js" # js files should be set this way
-  [headers.values]
-    Cache-Control = "public, max-age=604800"
-[[headers]]
-  for = "*.css" # css files too
-  [headers.values]
-    Cache-Control = "public, max-age=604800"
-    [[headers]]
-  for = "*.jpg" # jpg files too
-  [headers.values]
-    Cache-Control = "public, max-age=604800"
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+# Cache static assets
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache fonts
+/assets/css/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# Cache images
+/assets/img/*
+  Cache-Control: public, max-age=2592000
+/pages/*/img/*
+  Cache-Control: public, max-age=2592000
+/pages/*/*.webp
+  Cache-Control: public, max-age=2592000
+
+# Cache favicon and manifest
+/favicon*
+  Cache-Control: public, max-age=604800
+/android-chrome*
+  Cache-Control: public, max-age=604800
+/apple-touch-icon*
+  Cache-Control: public, max-age=604800
+/mstile*
+  Cache-Control: public, max-age=604800
+/site.webmanifest
+  Cache-Control: public, max-age=86400
+  Content-Type: application/manifest+json; charset=utf-8
+
+# Cache XML and TXT
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml; charset=utf-8
+/robots.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8

@@ -1,0 +1,4 @@
+# Redirects for Cloudflare Pages
+/pages/bottle/*   /pages/3d-services/index.html   301
+/pages/bottle/    /pages/3d-services/index.html   301
+/bottle/*         /pages/3d-services/index.html   301
